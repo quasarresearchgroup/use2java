@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.quasarresearchgroup.use2java.feature.group</groupId>
+  
+  <artifactId>use2java</artifactId>
+  
+  <version>2.0</version>
+  
+  <url>https://quasarresearchgroup.github.io/use2java/</url>
+  
+  <name>Model-driven Java code generator</name>
+  
+  <description>
+	USE2Java is a model-driven Java code and JUnit test cases generator that takes as input a domain model produced and validated with the USE (UML-based Specification Environment). The latter allows to specify models using features found in UML class diagrams (classes, associations, etc.), enriched with expressions in OCL (Object Constraint Language) to specify both integrity and business constraints. J-USE is particularly suited for developing BIS (business information systems) applications, providing a quick prototyping framework. Generated code maps the navigations on class diagrams allowable in OCL, therefore increasing traceability between model and code and reversely. A seamlessness approach to persistence, based on a pure object-oriented database, is used.
+</description>
+  
+  <packaging>jar</packaging>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  	<organization>
+		<name>QUASAR Research Group</name>
+		<url>https://sites.google.com/site/quasarresearchgroup/</url>
+	</organization>
+	
+	<scm>
+		<url>https://github.com/quasarresearchgroup/use2java</url>
+		<connection>scm:git:git://github.com/quasarresearchgroup/use2java.git</connection>
+		<developerConnection>britoeabreu</developerConnection>
+	</scm>
+	
+	<issueManagement>
+		<url>https://github.com/quasarresearchgroup/use2java/issues</url>
+		<system>GitHub Issue Tracker</system>
+	</issueManagement>
+  
+  <repositories>
+      
+	<repository>
+	   <id>jitpack.io</id>
+	   <name>JitPack is a package repository for Git</name>
+	   <url>https://jitpack.io</url>
+	</repository>
+	
+  </repositories>
+  
+  <dependencies>
+   
+  	<dependency>
+	    <groupId>com.github.quasarresearchgroup</groupId>
+	    <artifactId>j-use</artifactId>
+	    <version>5.0.1</version>
+	    <scope>compile</scope>
+	</dependency>
+		
+	<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		    <scope>test</scope>
+		</dependency>
+		
+  </dependencies> 
+  
+</project>
