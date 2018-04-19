@@ -67,7 +67,6 @@
   	<dependency>
 	    <groupId>com.github.quasarresearchgroup</groupId>
 	    <artifactId>j-use</artifactId>
-	    <version>5.0.1</version>
 	    <scope>compile</scope>
 	</dependency>
 		
