@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 //import java.util.regex.Pattern;
 
-import org.quasar.juse.api.JUSE_ProgramingFacade;
 import org.quasar.juse.api.JUSE_PrototypeGeneratorFacade;
-import org.quasar.juse.api.implementation.ProgramingFacade;
 import org.quasar.juse.api.implementation.PrototypeGeneratorFacade;
 
 

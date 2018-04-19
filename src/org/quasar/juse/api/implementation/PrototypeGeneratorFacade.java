@@ -29,23 +29,6 @@ import java.util.Map;
 
 import org.quasar.juse.api.JUSE_PrototypeGeneratorFacade;
 import org.quasar.juse.persistence.Database;
-import org.quasar.toolkit.FileSystemUtilities;
-import org.quasar.toolkit.SourceFileWriter;
-import org.tzi.use.uml.mm.MAssociationClass;
-import org.tzi.use.uml.mm.MAttribute;
-import org.tzi.use.uml.mm.MClass;
-import org.tzi.use.uml.mm.MOperation;
-import org.tzi.use.uml.ocl.type.EnumType;
-// import org.tzi.use.uml.ocl.type.Type;
-import org.tzi.use.uml.ocl.value.BooleanValue;
-import org.tzi.use.uml.ocl.value.EnumValue;
-import org.tzi.use.uml.ocl.value.IntegerValue;
-import org.tzi.use.uml.ocl.value.RealValue;
-import org.tzi.use.uml.ocl.value.StringValue;
-import org.tzi.use.uml.sys.MLink;
-import org.tzi.use.uml.sys.MLinkObject;
-import org.tzi.use.uml.sys.MObject;
-import org.tzi.use.uml.sys.MObjectState;
 
 /***********************************************************
  * @author fba 25 de Abr de 2012

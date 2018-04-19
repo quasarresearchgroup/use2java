@@ -6,7 +6,6 @@ package org.quasar.usemodel2java;
 
 import org.quasar.juse.api.JUSE_PrototypeGeneratorFacade;
 import org.quasar.juse.api.implementation.PrototypeGeneratorFacade;
-import org.tzi.use.uml.sys.MSystem;
 
 /***********************************************************
  * @author fba 2012-2015
