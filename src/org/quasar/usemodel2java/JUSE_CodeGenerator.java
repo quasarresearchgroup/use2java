@@ -4,8 +4,9 @@
  ***********************************************************/
 package org.quasar.usemodel2java;
 
-import org.quasar.juse.api.JUSE_PrototypeGeneratorFacade;
-import org.quasar.juse.api.implementation.PrototypeGeneratorFacade;
+import org.quasar.use2java.generator.IPrototypeGenerator;
+import org.quasar.use2java.generator.PrototypeGenerator;
+import org.tzi.use.uml.sys.MSystem;
 
 /***********************************************************
  * @author fba 2012-2015
@@ -21,7 +22,7 @@ public final class JUSE_CodeGenerator extends JUSE_PrototypeGeneratorConstants
 	 ***********************************************************/
 	public static void main(String[] args) throws InterruptedException
 	{
-		JUSE_PrototypeGeneratorFacade api = new PrototypeGeneratorFacade();
+		IPrototypeGenerator api = new PrototypeGenerator();
 
 		api.initialize(args, USE_BASE_DIRECTORY, MODEL_DIRECTORY);
 
@@ -37,7 +38,7 @@ public final class JUSE_CodeGenerator extends JUSE_PrototypeGeneratorConstants
 		api.javaGeneration(AUTHORS, JAVA_WORKSPACE, TARGET_PACKAGE, BUSINESSLAYER_NAME,
 						PRESENTATIONLAYER_NAME, PERSISTENCELAYER_NAME, LIBRARY_DIRECTORY, DB4O_JAR);
 		
-		 api.dumpState("Fernando Brito e Abreu", JAVA_WORKSPACE, CMD_FILE, false);
+//		api.dumpState("Fernando Brito e Abreu", JAVA_WORKSPACE, CMD_FILE, false);
 	}
 
 }

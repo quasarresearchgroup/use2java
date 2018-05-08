@@ -17,28 +17,36 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.quasar.juse.api.implementation;
+package org.quasar.use2java.generator;
 
-import java.lang.reflect.Constructor;
-// import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.quasar.juse.api.JUSE_PrototypeGeneratorFacade;
-import org.quasar.juse.persistence.Database;
+import org.quasar.juse.api.implementation.BasicFacade;
+import org.quasar.toolkit.*;
+import org.quasar.use2java.persistence.Database;
+import org.quasar.use2java.types.JavaTypes;
+import org.quasar.use2java.visitor.JavaBusinessVisitor;
+import org.quasar.use2java.visitor.JavaVisitor;
+import org.quasar.use2java.visitor.ModelUtilities;
+import org.tzi.use.uml.mm.*;
+import org.tzi.use.uml.ocl.type.*;
+import org.tzi.use.uml.ocl.value.*;
+import org.tzi.use.uml.sys.*;
+
 
 /***********************************************************
  * @author fba 25 de Abr de 2012
  * 
  ***********************************************************/
-public class PrototypeGeneratorFacade extends BasicFacade implements
-		JUSE_PrototypeGeneratorFacade {
+public class PrototypeGenerator extends BasicFacade implements
+		IPrototypeGenerator {
 	private Map<Integer, Object> objectMapper = null;
 
-	public PrototypeGeneratorFacade() {
+	public PrototypeGenerator() {
 	}
 
 	/*

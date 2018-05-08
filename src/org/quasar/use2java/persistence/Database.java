@@ -1,10 +1,15 @@
-package org.quasar.juse.persistence;
+package org.quasar.use2java.persistence;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.db4o.*;
+import com.db4o.config.EmbeddedConfiguration;
+import com.db4o.ext.*;
+import com.db4o.query.Query;
 
 public abstract class Database
 {

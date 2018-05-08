@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 //import java.util.regex.Pattern;
 
-import org.quasar.juse.api.JUSE_PrototypeGeneratorFacade;
-import org.quasar.juse.api.implementation.PrototypeGeneratorFacade;
+import org.quasar.juse.api.JUSE_ProgramingFacade;
+import org.quasar.juse.api.implementation.ProgramingFacade;
+import org.quasar.use2java.generator.IPrototypeGenerator;
+import org.quasar.use2java.generator.PrototypeGenerator;
 
 
 /***********************************************************
@@ -78,7 +80,7 @@ public final class JUSE_DatabaseGenerator extends JUSE_PrototypeGeneratorConstan
 	 ***********************************************************/
 	public static void mainRoundDataTrip()
 	{
-		JUSE_PrototypeGeneratorFacade api = new PrototypeGeneratorFacade();
+		IPrototypeGenerator api = new PrototypeGenerator();
 
 		String[] args = new String[0];
 

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class
+        name="org.quasar.use2java.visitor.WeakHashSet.HashableWeakReference"
+        x="943" y="392">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.JavaTypes" x="382" y="32">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.AssociationInfo"
+        x="606" y="233">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="org.quasar.use2java.visitor.AssociationKind"
+            endpointName="kind" kind="Simple"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.ModelUtilities"
+        x="660" y="376">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.AssociationInfo"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.JavaVisitor" x="19" y="221">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="org.quasar.use2java.visitor.IJavaVisitor"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.WeakHashSet" x="883" y="90">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.JavaBusinessVisitor"
+        x="380" y="446">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"/>
+        <MethodDisplayFilter public-accepted="false"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="org.quasar.use2java.visitor.JavaVisitor"/>
+        <Association
+            destinationClassName="org.quasar.use2java.visitor.ModelUtilities"
+            endpointName="util" kind="Simple"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.JavaTypes"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.AssociationInfo"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.ModelUtilities"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.AttributeInfo"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.AssociationKind"
+        x="517" y="35">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.AttributeInfo"
+        x="408" y="242">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="org.quasar.use2java.visitor.AssociationKind"
+            endpointName="kind" kind="Simple"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.AssociationInfo"/>
+        <Communication destinationClassName="org.quasar.use2java.visitor.ModelUtilities"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.IJavaVisitor" x="37" y="103">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"/>
+        <MethodDisplayFilter public-accepted="false"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="org.quasar.use2java.visitor.BasicFacade" x="225" y="26">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"/>
+        <MethodDisplayFilter public-accepted="false"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>

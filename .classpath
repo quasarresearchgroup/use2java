@@ -16,5 +16,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/db4o-8.0.249.16098-core-java5.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CopaPaises"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

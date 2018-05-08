@@ -17,14 +17,16 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.quasar.juse.api;
+package org.quasar.use2java.generator;
+
+import org.quasar.juse.api.JUSE_BasicFacade;
 
 /***********************************************************
 * @author fba
 * 19 de Abr de 2012
 *
 ***********************************************************/
-public interface JUSE_PrototypeGeneratorFacade extends JUSE_BasicFacade
+public interface IPrototypeGenerator extends JUSE_BasicFacade
 {
 	/***********************************************************
 	 * @param author
