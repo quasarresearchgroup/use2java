@@ -1,6 +1,6 @@
-package org.quasar.usemodel2java;
+package org.quasar.use2java;
 
-public abstract class JUSE_PrototypeGeneratorConstants
+public abstract class MAIN_PrototypeGeneratorConstants
 {
 	protected static final String	PLUGIN_ID		= "Java business app generator plugin (version 2.0.0)";
 	protected static final String	COPYRIGHT	= "Copyright (C) 2014-2018 QUASAR Research Group";

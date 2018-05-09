@@ -122,6 +122,14 @@ public interface IJavaVisitor
 	***********************************************************/
 	public void printCompareTo(MClass theClass);
 	
+
+	/***********************************************************
+	* @param theClass
+	*			The class whose hash code is to be generated
+	***********************************************************/
+	public void printHashCode(MClass theClass);
+	
+	
 	/***********************************************************
 	* @param theClass
 	*			The class whose equality checker is to be generated

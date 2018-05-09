@@ -402,6 +402,19 @@ public class JavaBusinessVisitor extends JavaVisitor
 		println("{");
 		incIndent();
 		
+		if (inheritedAttributes.size() > 0)
+		{
+			print("super(");
+			for (int i = 0; i < inheritedAttributes.size(); i++)
+			{
+				print(inheritedAttributes.get(i).getName());
+				if (i < inheritedAttributes.size() - 1)
+					print(", ");
+			}
+			println(");");
+			println();
+		}
+		
 		// asserts to guarantee cardinality constraints
 		boolean assertsRequired = false;
 		AssociationKind toOneKinds[] = new AssociationKind[] {AssociationKind.ONE2ONE, AssociationKind.ONE2MANY, AssociationKind.ASSOCIATIVE2MEMBER};
@@ -420,17 +433,6 @@ public class JavaBusinessVisitor extends JavaVisitor
 		if (assertsRequired) 
 			println();
 		
-		if (inheritedAttributes.size() > 0)
-		{
-			print("super(");
-			for (int i = 0; i < inheritedAttributes.size(); i++)
-			{
-				print(inheritedAttributes.get(i).getName());
-				if (i < inheritedAttributes.size() - 1)
-					print(", ");
-			}
-			println(");");
-		}
 		for (AttributeInfo attribute : AttributeInfo.getAttributesInfo(theClass))
 			println("this." + attribute.getName() + " = " + attribute.getName() + ";");
 
@@ -569,32 +571,33 @@ public class JavaBusinessVisitor extends JavaVisitor
 	{
 		for (AssociationInfo ai : AssociationInfo.getAssociationsInfo(theClass))
 		{
+			// System.out.println(ai);
 			switch (ai.getKind())
 			{
 				case ASSOCIATIVE2MEMBER:
 					// Already performed by the generated getters
 					break;
+
 				case MEMBER2ASSOCIATIVE:
 					// Already performed in one direction by the collection attribute. This call generates two operations
 					// (one getter and one setter) in the other direction
-					// System.out.println(ai);
 					if (theClass == ai.getSourceAE().cls())
 						printMEMBER2ASSOCIATIVE(ai);
 					if (theClass == ai.getTargetAE().cls() && ai.getSourceAE().cls() != ai.getTargetAE().cls())
 						printMEMBER2ASSOCIATIVE(ai.swapped());
 					break;
+				
 				case MEMBER2MEMBER:
 					// Uses the association class to obtain the assessor to the other member
-					// System.out.println(ai);
 					if (theClass == ai.getSourceAE().cls())
 						printMEMBER2MEMBER(ai);
 					if (theClass == ai.getTargetAE().cls() && ai.getSourceAE().cls() != ai.getTargetAE().cls())
 						printMEMBER2MEMBER(ai.swapped());
 					break;
+
 				case ONE2ONE:
 					// Already performed in one direction by the attribute getter. This call generates an operation in the other
 					// direction
-					// System.out.println(ai);
 					if (theClass == ai.getSourceAE().cls()
 									&& theClass == util.moreComplexClass(ai.getSourceAE().cls(), ai.getTargetAE().cls()))
 						printONE2ONE(ai);
@@ -602,16 +605,17 @@ public class JavaBusinessVisitor extends JavaVisitor
 									&& theClass == util.moreComplexClass(ai.getSourceAE().cls(), ai.getTargetAE().cls()))
 						printONE2ONE(ai.swapped());
 					break;
+					
 				case ONE2MANY:
 					// // Already performed in one direction by the collection attribute. This call generates two operations
 					// (one getter and one setter) in the other direction
-					// System.out.println(ai);
 					if (theClass == ai.getSourceAE().cls() && (ai.getTargetAE().isCollection() || ai.getTargetAE().isOrdered()))
 						printONE2MANY(ai);
 					if (theClass == ai.getTargetAE().cls() && (ai.getSourceAE().isCollection() || ai.getSourceAE().isOrdered())
 									&& ai.getSourceAE().cls() != ai.getTargetAE().cls())
 						printONE2MANY(ai.swapped());
 					break;
+					
 				case MANY2MANY:
 					// Already performed in one direction by the collection attribute getter. This call generates an operation
 					// in the other direction
@@ -623,6 +627,7 @@ public class JavaBusinessVisitor extends JavaVisitor
 									&& theClass == util.moreComplexClass(ai.getSourceAE().cls(), ai.getTargetAE().cls()))
 						printMANY2MANY(ai.swapped());
 					break;
+					
 				default:
 					System.out.println("ERROR: " + ai);
 			}
@@ -1352,25 +1357,61 @@ public class JavaBusinessVisitor extends JavaVisitor
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see org.quasar.juse.api.implementation.IJavaVisitor#printHashCode(org.tzi.use.uml.mm.MClass)
+	 */
+	@Override
+	public void printHashCode(MClass theClass)
+	{
+		if (AttributeInfo.getAttributesInfo(theClass).isEmpty())	return;
+		
+		println("/*");
+		println("* (non-Javadoc)");
+		println("* @see java.lang.Object#hashCode()");
+		println("*/");
+		println("@Override");
+		println("public int hashCode()");
+		println("{");
+		incIndent();
+		println("final int prime = 31;");
+		println("int result = 1;");
+
+//		for (MAttribute attribute : theClass.attributes())
+//			println("result = prime * result + ((this." + attribute.name() + " == null) ? 0 : this." + attribute.name() + ".hashCode());");
+//
+		for (AttributeInfo attribute : AttributeInfo.getAttributesInfo(theClass))
+			println("result = prime * result + ((this." + attribute.getName() + " == null) ? 0 : this." + attribute.getName() + ".hashCode());");	
+		
+		println("return result;");
+		decIndent();
+		println("}");
+		println();
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.quasar.juse.api.implementation.IJavaVisitor#printEquals(org.tzi.use.uml.mm.MClass)
 	 */
 	@Override
 	public void printEquals(MClass theClass)
 	{
-		println("/**********************************************************************");
-		println("* @param other " + theClass.name() + " to check equality to the current one");
-		println("* @return true if the argument is equal to the current " + theClass.name() + " and false otherwise");
-		println("**********************************************************************/");
+		if (AttributeInfo.getAttributesInfo(theClass).isEmpty())	return;
+		
+		println("/*");
+		println("* (non-Javadoc)");
+		println("* @see java.lang.Object#equals(java.lang.Object)");
+		println("*/");
 		println("@Override");
 		println("public boolean equals(Object other)");
 		println("{");
 		incIndent();
 		println("assert other instanceof " + theClass.name() + ";");
 		println();
-		println("if (this == other)");
-		incIndent();
-		println("return true;");
-		decIndent();
+		
+		println("if (this == other) return true;");
+		println();
+
+		println("if (other == null) return false;");
 		println();
 
 		println("final " + theClass.name() + " another = (" + theClass.name() + ") other;");
@@ -1385,13 +1426,22 @@ public class JavaBusinessVisitor extends JavaVisitor
 		}
 		println();
 
-		for (MAttribute attribute : theClass.attributes())
+//		for (MAttribute attribute : theClass.attributes())
+//		{
+//			println("if ((this." + attribute.name() + " == null) ? (another." + attribute.name() + " != null) : !this." + attribute.name() + ".equals(another." + attribute.name() + "))");
+//			incIndent();
+//			println("return false;");
+//			decIndent();
+//		}
+
+		for (AttributeInfo attribute : AttributeInfo.getAttributesInfo(theClass))
 		{
-			println("if ((this." + attribute.name() + " == null) ? (another." + attribute.name() + " != null) : !this." + attribute.name() + ".equals(another." + attribute.name() + "))");
+			println("if ((this." + attribute.getName() + " == null) ? (another." + attribute.getName() + " != null) : !this." + attribute.getName() + ".equals(another." + attribute.getName() + "))");
 			incIndent();
 			println("return false;");
 			decIndent();
 		}
+				
 		println();
 		println("return true;");
 		decIndent();
@@ -1645,4 +1695,5 @@ public class JavaBusinessVisitor extends JavaVisitor
 		decIndent();
 		println("}");
 	}
+
 }

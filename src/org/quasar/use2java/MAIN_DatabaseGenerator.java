@@ -2,7 +2,7 @@
  * Filename: MainExample.java
  * Created:  24 de Mar de 2013
  ***********************************************************/
-package org.quasar.usemodel2java;
+package org.quasar.use2java;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import org.quasar.use2java.generator.PrototypeGenerator;
  * @author fba 2013-2015
  * 
  ***********************************************************/
-public final class JUSE_DatabaseGenerator extends JUSE_PrototypeGeneratorConstants
+public final class MAIN_DatabaseGenerator extends MAIN_PrototypeGeneratorConstants
 {
 	/***********************************************************
 	 * @param args

@@ -2,7 +2,7 @@
  * Filename: MainExample.java
  * Created:  24 de Mar de 2012
  ***********************************************************/
-package org.quasar.usemodel2java;
+package org.quasar.use2java;
 
 import org.quasar.use2java.generator.IPrototypeGenerator;
 import org.quasar.use2java.generator.PrototypeGenerator;
@@ -12,7 +12,7 @@ import org.tzi.use.uml.sys.MSystem;
  * @author fba 2012-2015
  * 
  ***********************************************************/
-public final class JUSE_CodeGenerator extends JUSE_PrototypeGeneratorConstants
+public final class MAIN_CodeGenerator extends MAIN_PrototypeGeneratorConstants
 {
 
 	
@@ -31,9 +31,9 @@ public final class JUSE_CodeGenerator extends JUSE_PrototypeGeneratorConstants
 		System.out.println("\n" + PLUGIN_ID + ", " + COPYRIGHT);
 		System.out.println("\n\t Generating Java code for the " + theSystem.model().name() + " prototype");
 		
-		api.readSOIL(MODEL_DIRECTORY, SOIL_FILE, true);
-
-		api.command("info state");
+//		api.readSOIL(MODEL_DIRECTORY, SOIL_FILE, false);
+//
+//		api.command("info state");
 		
 		api.javaGeneration(AUTHORS, JAVA_WORKSPACE, TARGET_PACKAGE, BUSINESSLAYER_NAME,
 						PRESENTATIONLAYER_NAME, PERSISTENCELAYER_NAME, LIBRARY_DIRECTORY, DB4O_JAR);
